@@ -243,6 +243,7 @@ GameObject:
   - component: {fileID: 388403264}
   - component: {fileID: 388403268}
   - component: {fileID: 388403266}
+  - component: {fileID: 388403265}
   m_Layer: 0
   m_Name: CustomerTray4
   m_TagString: Untagged
@@ -264,6 +265,18 @@ Transform:
   m_Father: {fileID: 895044706}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &388403265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388403263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e64560e7556f694999f2a645d9e5b99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!61 &388403266
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1141,6 +1154,7 @@ GameObject:
   - component: {fileID: 1255578434}
   - component: {fileID: 1255578438}
   - component: {fileID: 1255578436}
+  - component: {fileID: 1255578435}
   m_Layer: 0
   m_Name: CustomerTray2
   m_TagString: Untagged
@@ -1162,6 +1176,18 @@ Transform:
   m_Father: {fileID: 895044706}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1255578435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255578433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e64560e7556f694999f2a645d9e5b99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!61 &1255578436
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1685,6 +1711,7 @@ GameObject:
   - component: {fileID: 1457320510}
   - component: {fileID: 1457320514}
   - component: {fileID: 1457320512}
+  - component: {fileID: 1457320511}
   m_Layer: 0
   m_Name: CustomerTray3
   m_TagString: Untagged
@@ -1706,6 +1733,18 @@ Transform:
   m_Father: {fileID: 895044706}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1457320511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457320509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e64560e7556f694999f2a645d9e5b99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!61 &1457320512
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2075,6 +2114,7 @@ GameObject:
   - component: {fileID: 1759620103}
   - component: {fileID: 1759620107}
   - component: {fileID: 1759620105}
+  - component: {fileID: 1759620104}
   m_Layer: 0
   m_Name: CustomerTray5
   m_TagString: Untagged
@@ -2096,6 +2136,18 @@ Transform:
   m_Father: {fileID: 895044706}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1759620104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759620102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e64560e7556f694999f2a645d9e5b99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!61 &1759620105
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2330,6 +2382,7 @@ GameObject:
   - component: {fileID: 1862487731}
   - component: {fileID: 1862487734}
   - component: {fileID: 1862487732}
+  - component: {fileID: 1862487733}
   m_Layer: 0
   m_Name: CustomerTray1
   m_TagString: Untagged
@@ -2377,6 +2430,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1862487733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862487730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e64560e7556f694999f2a645d9e5b99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &1862487734
 SpriteRenderer:
   m_ObjectHideFlags: 0

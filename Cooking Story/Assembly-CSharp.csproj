@@ -55,10 +55,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Customer.cs" />
      <Compile Include="Assets\Scripts\InputController.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Vegetable Containers\Basket.cs" />
      <Compile Include="Assets\Scripts\Vegetable Containers\ChoppingBoard.cs" />
+     <Compile Include="Assets\Scripts\Vegetable Containers\CustomerTray.cs" />
      <Compile Include="Assets\Scripts\Vegetable Containers\Plate.cs" />
      <Compile Include="Assets\Scripts\Vegetable Containers\PlayerTray.cs" />
      <Compile Include="Assets\Scripts\Vegetable Containers\TrashCan.cs" />

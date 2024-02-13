@@ -29,6 +29,7 @@ public class PlayerTray : MonoBehaviour, IVegetableContainer
         }
         
         List<Vegetable> vegetables = IsHoldingSalad ? vegetableQueue.ToList<Vegetable>() : new List<Vegetable>() { vegetableQueue.Dequeue() };
+        if(IsHoldingSalad) vegetableQueue.Clear();
         return vegetables;
     }
 

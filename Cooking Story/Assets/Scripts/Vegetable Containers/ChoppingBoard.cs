@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using UnityEngine;
 
 public class ChoppingBoard : VegetableContainer
@@ -55,13 +56,19 @@ public class ChoppingBoard : VegetableContainer
         {
             Debug.Log($"{vegetables[0]?.Type} placed into board");
             InputController.Instance.SetPlayerSpeed(0);
-            choppingInProgress = true;
             choppingStartTime = Time.time;
             foreach (var vegetable in vegetables)
             {
                 vegetable.IsChopped = true;
             }
         }
-        return base.PlaceIntoContainer(vegetables);
+        bool isVegetablesPlaced = base.PlaceIntoContainer(vegetables);
+        choppingInProgress = !_player.IsHoldingSalad && isVegetablesPlaced;
+        return isVegetablesPlaced;
+    }
+
+    public override bool CanPlaceVegetables(int newVegetablesCount)
+    {
+        return !choppingInProgress && base.CanPlaceVegetables(newVegetablesCount);
     }
 }
