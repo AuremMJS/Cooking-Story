@@ -5,9 +5,10 @@ using UnityEngine;
 
 public interface IVegetableContainer
 {
-    
     List<Vegetable> TakeFromContainer();
     bool PlaceIntoContainer(List<Vegetable> vegetable);
+    bool CanTakeVegetables(int newVegetablesCount);
+    int GetNoOfVegetablesToTake();
 }
 
 public abstract class VegetableContainer : MonoBehaviour, IVegetableContainer
@@ -23,7 +24,7 @@ public abstract class VegetableContainer : MonoBehaviour, IVegetableContainer
         _player = null;
     }
 
-    public void Start()
+    public virtual void Start()
     {
         InputController.Instance.ItemTaken += OnItemTaken;
         InputController.Instance.ItemPlaced += OnItemPlaced;
@@ -46,10 +47,15 @@ public abstract class VegetableContainer : MonoBehaviour, IVegetableContainer
         vegetables.Add(vegetableQueue.Dequeue());
         return vegetables;
     }
+
+    public virtual int GetNoOfVegetablesToTake()
+    {
+        return 1;
+    }
     
     public virtual bool PlaceIntoContainer(List<Vegetable> vegetables)
     {
-        if(vegetableQueue.Count >= maxVegetables || (vegetableQueue.Count + vegetables.Count) > maxVegetables)
+        if(!CanTakeVegetables(vegetables.Count))
         {
             return false;
         }
@@ -61,7 +67,7 @@ public abstract class VegetableContainer : MonoBehaviour, IVegetableContainer
     }
     private void OnItemTaken()
     {
-        if (_player != null && !_player.IsHoldingSalad)
+        if (_player != null && _player.CanTakeVegetables(GetNoOfVegetablesToTake()))
         {
             List<Vegetable> vegetables = TakeFromContainer();
             if(vegetables!= null)
@@ -71,7 +77,7 @@ public abstract class VegetableContainer : MonoBehaviour, IVegetableContainer
 
     private void OnItemPlaced()
     {
-        if (_player != null && vegetableQueue.Count < maxVegetables)
+        if (_player != null && CanTakeVegetables(_player.GetNoOfVegetablesToTake()))
         {
             List<Vegetable> vegetables = _player?.TakeFromContainer();
             PlaceIntoContainer(vegetables);
@@ -86,5 +92,10 @@ public abstract class VegetableContainer : MonoBehaviour, IVegetableContainer
     private void OnTriggerExit2D(Collider2D other)
     {
         _player = null;
+    }
+
+    public bool CanTakeVegetables(int newVegetablesCount)
+    {
+        return (vegetableQueue.Count < maxVegetables && (vegetableQueue.Count + newVegetablesCount) <= maxVegetables);
     }
 }

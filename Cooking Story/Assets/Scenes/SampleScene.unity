@@ -834,6 +834,7 @@ GameObject:
   - component: {fileID: 1174605481}
   - component: {fileID: 1174605482}
   - component: {fileID: 1174605484}
+  - component: {fileID: 1174605483}
   m_Layer: 0
   m_Name: Vegetable4
   m_TagString: Untagged
@@ -905,6 +906,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1174605483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174605480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e62e78d6d3eadf4a84a04cc81fb5397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vegetableType: 3
+  vegetableSprite: {fileID: 0}
 --- !u!61 &1174605484
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -942,6 +957,7 @@ GameObject:
   - component: {fileID: 1175538757}
   - component: {fileID: 1175538758}
   - component: {fileID: 1175538760}
+  - component: {fileID: 1175538759}
   m_Layer: 0
   m_Name: Vegetable5
   m_TagString: Untagged
@@ -1013,6 +1029,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1175538759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175538756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e62e78d6d3eadf4a84a04cc81fb5397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vegetableType: 4
+  vegetableSprite: {fileID: 0}
 --- !u!61 &1175538760
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1372,6 +1402,7 @@ GameObject:
   - component: {fileID: 1393066761}
   - component: {fileID: 1393066762}
   - component: {fileID: 1393066764}
+  - component: {fileID: 1393066763}
   m_Layer: 0
   m_Name: Vegetable2
   m_TagString: Untagged
@@ -1443,6 +1474,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1393066763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393066760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e62e78d6d3eadf4a84a04cc81fb5397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vegetableType: 1
+  vegetableSprite: {fileID: 0}
 --- !u!61 &1393066764
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1696,6 +1741,7 @@ GameObject:
   - component: {fileID: 1483603588}
   - component: {fileID: 1483603589}
   - component: {fileID: 1483603591}
+  - component: {fileID: 1483603590}
   m_Layer: 0
   m_Name: Vegetable6
   m_TagString: Untagged
@@ -1767,6 +1813,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1483603590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483603587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e62e78d6d3eadf4a84a04cc81fb5397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vegetableType: 5
+  vegetableSprite: {fileID: 0}
 --- !u!61 &1483603591
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1804,6 +1864,7 @@ GameObject:
   - component: {fileID: 1603053020}
   - component: {fileID: 1603053021}
   - component: {fileID: 1603053023}
+  - component: {fileID: 1603053022}
   m_Layer: 0
   m_Name: Vegetable1
   m_TagString: Untagged
@@ -1875,6 +1936,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1603053022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603053019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e62e78d6d3eadf4a84a04cc81fb5397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vegetableType: 0
+  vegetableSprite: {fileID: 0}
 --- !u!61 &1603053023
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2311,6 +2386,7 @@ GameObject:
   - component: {fileID: 1942168547}
   - component: {fileID: 1942168548}
   - component: {fileID: 1942168550}
+  - component: {fileID: 1942168549}
   m_Layer: 0
   m_Name: Vegetable3
   m_TagString: Untagged
@@ -2382,6 +2458,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1942168549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942168546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e62e78d6d3eadf4a84a04cc81fb5397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vegetableType: 2
+  vegetableSprite: {fileID: 0}
 --- !u!61 &1942168550
 BoxCollider2D:
   m_ObjectHideFlags: 0
