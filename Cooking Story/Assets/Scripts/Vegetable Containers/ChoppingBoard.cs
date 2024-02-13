@@ -10,7 +10,7 @@ public class ChoppingBoard : VegetableContainer
     [SerializeField]
     private int playerIndex;
 
-    float choppingTime = 5.0f;
+    float choppingTime = 2.0f;
     bool choppingInProgress;
     float choppingStartTime;
 

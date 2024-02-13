@@ -94,4 +94,9 @@ public class PlayerTray : MonoBehaviour, IVegetableContainer
     {
         return player.PlayerIndex;
     }
+
+    public Player GetPlayer()
+    {
+        return player;
+    }
 }

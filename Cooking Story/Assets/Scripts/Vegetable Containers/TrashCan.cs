@@ -30,6 +30,7 @@ public class TrashCan : VegetableContainer
         vegetables.Clear();
         vegetables = null;
         _player.IsHoldingSalad = false;
+        ScoreManager.Instance[_player.GetPlayerIndex()] -= 30;
         return true;
     }
 

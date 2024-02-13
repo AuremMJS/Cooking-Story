@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Customer
 {
-    static float customerQueueTime;
+    private bool isAngry;
     public List<Vegetable> Order { get; set; }
 
     public Customer() 
@@ -13,19 +13,17 @@ public class Customer
         int noOfItems = UnityEngine.Random.Range(1, 3);
         Order = new List<Vegetable>(noOfItems);
         Array vegetables = Enum.GetValues(typeof(VegetableType));
-        Debug.Log("Customer Order :");
         for (int i = 0; i < noOfItems; i++)
         {
             int randomVeg = UnityEngine.Random.Range(0, vegetables.Length);
             Order.Add(new Vegetable((VegetableType) randomVeg,true));
-            Debug.Log(Order[i].Type.ToString());
         }
     }
     public float WaitingTime
     {
         get
         {
-            return Order.Count * 15.0f;
+            return Order.Count * 20.0f * (isAngry ? 0.75f : 1.0f);
         }
     }
 
@@ -40,4 +38,13 @@ public class Customer
         return noOfItemsMatching == Order.Count;
     }
 
+    public void SetAngry()
+    {
+        isAngry = true;
+    }
+
+    public int GetPenalty()
+    {
+        return 40;
+    }
 }

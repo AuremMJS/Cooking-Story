@@ -5,10 +5,10 @@ using UnityEngine.UIElements;
 
 public class CustomerTray : VegetableContainer
 {
-    static float customerQueueTime;
     float orderedTime = 0;
     Customer customer;
     bool orderPlaced = false;
+    int angryIndex = -1;
     // Start is called before the first frame update
     public override void Start()
     {
@@ -27,15 +27,26 @@ public class CustomerTray : VegetableContainer
         if (customer != null && Time.time - orderedTime > customer.WaitingTime)
         {
             Debug.Log($"Customer left the restaurant {customer.WaitingTime}");
+           
+            if(angryIndex !=  -1)
+            {
+                ScoreManager.Instance[angryIndex] -= customer.GetPenalty() * 2;
+            }
+            else
+            {
+                ScoreManager.Instance[0] -= customer.GetPenalty();
+                ScoreManager.Instance[1] -= customer.GetPenalty();
+            }
             customer = new Customer();
+            angryIndex = -1;
+            UpdateVegetableSprites();
             orderPlaced = false;
         }
     }
 
     void PlaceOrder()
     {
-        orderedTime = Time.time + customerQueueTime;
-        customerQueueTime += customer.WaitingTime;
+        orderedTime = Time.time;
         UpdateVegetableSprites();
         orderPlaced = true;
     }
@@ -45,6 +56,8 @@ public class CustomerTray : VegetableContainer
         if (vegetables != null && customer.IsOrderCorrect(vegetables))
         {
             Debug.Log("Order completed");
+            ScoreManager.Instance[_player.GetPlayerIndex()]+= 100;
+            _player.IsHoldingSalad = false;
             for (int i = 0; i < vegetables.Count; i++)
             {
                 vegetables[i] = null;
@@ -52,11 +65,16 @@ public class CustomerTray : VegetableContainer
             vegetables.Clear();
             vegetables = null;
             customer = new Customer();
+            angryIndex = -1;
+            UpdateVegetableSprites();
             return true;
         }
         else
         {
             Debug.Log("Order wrong");
+            customer.SetAngry();
+            angryIndex = _player.GetPlayerIndex();
+            _player.IsHoldingSalad = true;
             base.PlaceIntoContainer(vegetables);
             TransferVegetables(this, _player);
             return true;

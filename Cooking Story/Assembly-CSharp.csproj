@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\InputController.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\ScoreManager.cs" />
      <Compile Include="Assets\Scripts\SpriteLoader.cs" />
      <Compile Include="Assets\Scripts\Vegetable Containers\Basket.cs" />
      <Compile Include="Assets\Scripts\Vegetable Containers\ChoppingBoard.cs" />

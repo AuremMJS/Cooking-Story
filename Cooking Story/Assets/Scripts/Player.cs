@@ -16,6 +16,13 @@ public class Player : MonoBehaviour
     }
     public float Speed { get; set; }
     public float CurrentSpeed { get; set; }
+    public int Score
+    {
+        get
+        {
+            return ScoreManager.Instance[playerIndex];
+        }
+    }
 
     void Awake()
     {
