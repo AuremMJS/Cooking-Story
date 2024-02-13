@@ -533,6 +533,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 737261009}
+  - component: {fileID: 737261008}
   m_Layer: 0
   m_Name: InputController
   m_TagString: Untagged
@@ -540,6 +541,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &737261008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737261007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 349ad12e1735cdb4e82aafccf3dd8846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &737261009
 Transform:
   m_ObjectHideFlags: 0
@@ -2044,6 +2057,7 @@ GameObject:
   - component: {fileID: 1823832122}
   - component: {fileID: 1823832124}
   - component: {fileID: 1823832126}
+  - component: {fileID: 1823832123}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2115,6 +2129,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1823832123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823832120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d7641c949e105b4fb12c5a064147c96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
 --- !u!50 &1823832124
 Rigidbody2D:
   serializedVersion: 4
