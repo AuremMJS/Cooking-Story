@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\InputController.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Vegetable Containers\Basket.cs" />
+     <Compile Include="Assets\Scripts\Vegetable Containers\ChoppingBoard.cs" />
      <Compile Include="Assets\Scripts\Vegetable Containers\PlayerTray.cs" />
      <Compile Include="Assets\Scripts\Vegetable Containers\Vegetable.cs" />
      <Compile Include="Assets\Scripts\Vegetable Containers\VegetableContainer.cs" />

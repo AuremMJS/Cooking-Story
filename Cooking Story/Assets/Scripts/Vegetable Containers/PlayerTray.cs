@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerTray : MonoBehaviour, IVegetableContainer
@@ -26,17 +27,8 @@ public class PlayerTray : MonoBehaviour, IVegetableContainer
         {
             return null;
         }
-        int noOfVegetablesToTake = IsHoldingSalad ? vegetableQueue.Count : 1;
-
-        List<Vegetable> vegetables = new List<Vegetable>();
-        int noOfVegetablesTaken = 0;
-
-        while (noOfVegetablesTaken < noOfVegetablesToTake)
-        {
-            vegetables.Add(vegetableQueue.Dequeue());
-            noOfVegetablesTaken++;
-        }
-
+        
+        List<Vegetable> vegetables = IsHoldingSalad ? vegetableQueue.ToList<Vegetable>() : new List<Vegetable>() { vegetableQueue.Dequeue() };
         return vegetables;
     }
 
@@ -50,6 +42,7 @@ public class PlayerTray : MonoBehaviour, IVegetableContainer
         {
             vegetableQueue.Enqueue(vegetable);
         }
+
         return true;
     }
 

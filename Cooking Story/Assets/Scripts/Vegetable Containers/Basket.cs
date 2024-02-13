@@ -6,7 +6,7 @@ using UnityEngine;
 public class Basket : VegetableContainer
 {
     [SerializeField]
-    private VegetableType vegetableType;
+    private VegetableType vegetableType = VegetableType.Tomato;
     [SerializeField]
     private SpriteRenderer vegetableSprite;
 
