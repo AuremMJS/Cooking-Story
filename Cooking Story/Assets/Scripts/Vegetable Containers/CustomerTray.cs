@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class CustomerTray : VegetableContainer
 {
+    [SerializeField]
+    public Slider waitTimeProgressBar;
+
     float orderedTime = 0;
     Customer customer;
     bool orderPlaced = false;
     int angryIndex = -1;
+    float waitTimePercentageRemaining = 0;
     // Start is called before the first frame update
     public override void Start()
     {
@@ -20,6 +24,8 @@ public class CustomerTray : VegetableContainer
     // Update is called once per frame
     void Update()
     {
+        waitTimePercentageRemaining = (customer.WaitingTime - (Time.time - orderedTime)) / customer.WaitingTime;
+        waitTimeProgressBar.value = waitTimePercentageRemaining;
         if (!orderPlaced)
         {
             PlaceOrder();
@@ -47,6 +53,8 @@ public class CustomerTray : VegetableContainer
     void PlaceOrder()
     {
         orderedTime = Time.time;
+        waitTimePercentageRemaining = (customer.WaitingTime - (Time.time - orderedTime)) / customer.WaitingTime;
+        waitTimeProgressBar.value = waitTimePercentageRemaining;
         UpdateVegetableSprites();
         orderPlaced = true;
     }
@@ -67,6 +75,7 @@ public class CustomerTray : VegetableContainer
             customer = new Customer();
             angryIndex = -1;
             UpdateVegetableSprites();
+            orderPlaced = false;
             return true;
         }
         else

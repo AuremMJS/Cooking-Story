@@ -67,6 +67,7 @@
      <Compile Include="Assets\Scripts\Vegetable Containers\Plate.cs" />
      <Compile Include="Assets\Scripts\Vegetable Containers\PlayerTray.cs" />
      <Compile Include="Assets\Scripts\Vegetable Containers\TrashCan.cs" />
+     <Compile Include="Assets\Scripts\Vegetable Containers\UIManager.cs" />
      <Compile Include="Assets\Scripts\Vegetable Containers\Vegetable.cs" />
      <Compile Include="Assets\Scripts\Vegetable Containers\VegetableContainer.cs" />
      <Compile Include="Assets\Scripts\VegetableSpritesSO.cs" />

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,8 +18,12 @@ public class ScoreManager : MonoBehaviour
         set {
             Debug.Log($"Score reduced {player_Score[index]} -> {value}");
             player_Score[index] = value > 0 ? value : 0;
+            ScoreUpdated?.Invoke();
         }
     }
+
+    public Action ScoreUpdated;
+    
     public static ScoreManager Instance;
     public void Awake()
     {

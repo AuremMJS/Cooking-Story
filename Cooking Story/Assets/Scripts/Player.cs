@@ -24,10 +24,30 @@ public class Player : MonoBehaviour
         }
     }
 
+    public float GameTime { get; set; }
+
+    private float startTime;
+
     void Awake()
     {
         Speed = CurrentSpeed = 10.0f;
+        GameTime = 60 * 2;
+        startTime = Time.time;
     }
+
+    void Update()
+    {
+        if(GameTime - (Time.time - startTime) <= 0)
+        {
+            CurrentSpeed = 0;
+            Speed = 0;
+        }
+        else
+        {
+            UIManager.Instance.UpdateTimer(this);
+        }
+    }
+
     public void ResetCurrentSpeed()
     {
         CurrentSpeed = Speed;
