@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 145382332}
   - component: {fileID: 145382333}
   - component: {fileID: 145382334}
+  - component: {fileID: 145382335}
   m_Layer: 0
   m_Name: Plate1
   m_TagString: Untagged
@@ -219,6 +220,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 1}
   serializedVersion: 2
   m_Radius: 0.50000006
+--- !u!114 &145382335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145382331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d46fc894a051092428f7889b161c38ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &388403263
 GameObject:
   m_ObjectHideFlags: 0
@@ -1223,6 +1236,7 @@ GameObject:
   - component: {fileID: 1267180141}
   - component: {fileID: 1267180142}
   - component: {fileID: 1267180144}
+  - component: {fileID: 1267180143}
   m_Layer: 0
   m_Name: Plate2
   m_TagString: Untagged
@@ -1294,6 +1308,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1267180143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267180140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d46fc894a051092428f7889b161c38ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!58 &1267180144
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1525,6 +1551,7 @@ GameObject:
   - component: {fileID: 1406915202}
   - component: {fileID: 1406915203}
   - component: {fileID: 1406915205}
+  - component: {fileID: 1406915204}
   m_Layer: 0
   m_Name: ChoppingBoard2
   m_TagString: Untagged
@@ -1596,6 +1623,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1406915204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406915201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e04b643310eefe4784b59c8434fdba9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!61 &1406915205
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2656,6 +2695,7 @@ GameObject:
   - component: {fileID: 2127518022}
   - component: {fileID: 2127518023}
   - component: {fileID: 2127518024}
+  - component: {fileID: 2127518025}
   m_Layer: 0
   m_Name: ChoppingBoard1
   m_TagString: Untagged
@@ -2753,3 +2793,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2127518025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2127518021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e04b643310eefe4784b59c8434fdba9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
