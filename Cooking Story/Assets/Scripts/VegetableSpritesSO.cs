@@ -5,14 +5,14 @@ using UnityEngine;
 public struct VegetableSpriteSOEntry
 {
     [SerializeField]
-    VegetableType vegetableType;
+    public VegetableType vegetableType;
     [SerializeField]
-    Sprite sprite;
+    public Sprite sprite;
 }
 
 [CreateAssetMenu(fileName = "VegetableSpritesSO", menuName = "ScriptableObjects/VegetableSpritesSO", order = 1)]
 public class VegetableSpritesSO : ScriptableObject
 {
     [SerializeField]
-    private VegetableSpriteSOEntry[] vegetables;
+    public VegetableSpriteSOEntry[] vegetables;
 }

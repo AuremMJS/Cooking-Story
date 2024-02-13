@@ -33,4 +33,9 @@ public class Basket : VegetableContainer
         // Player cannot place vegetables back
         return false;
     }
+
+    protected override void UpdateVegetableSprites()
+    {
+        vegetableSprite.sprite = SpriteLoader.Instance.GetSpriteForVegetable(vegetableType);
+    }
 }

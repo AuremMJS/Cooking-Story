@@ -1,4 +1,6 @@
-public class Vegetable
+using System;
+
+public class Vegetable : IEquatable<Vegetable>
 {
     public VegetableType Type { get; set; }
     public string VegetableName {  get; private set; }
@@ -30,6 +32,11 @@ public class Vegetable
             default:
                 return "";
         }
+    }
+
+    public bool Equals(Vegetable other)
+    {
+        return Type == other.Type && IsChopped == other.IsChopped;
     }
 }
 

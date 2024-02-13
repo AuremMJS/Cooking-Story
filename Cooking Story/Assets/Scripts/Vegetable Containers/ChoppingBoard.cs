@@ -38,6 +38,7 @@ public class ChoppingBoard : VegetableContainer
             Debug.Log($"Salad taken from board");
             List<Vegetable> vegetables = vegetableQueue.ToList<Vegetable>();
             vegetableQueue.Clear();
+            UpdateVegetableSprites();
             return vegetables;
         }
         return null;

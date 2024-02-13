@@ -17,6 +17,7 @@ public class PlayerTray : MonoBehaviour, IVegetableContainer
         IsHoldingSalad = false;
         SetMaxVegetables(2);
         vegetableQueue = new Queue<Vegetable>();
+        UpdateVegetableSprites();
     }
 
     protected void SetMaxVegetables(int _maxVegetables)
@@ -33,6 +34,7 @@ public class PlayerTray : MonoBehaviour, IVegetableContainer
         
         List<Vegetable> vegetables = IsHoldingSalad ? vegetableQueue.ToList<Vegetable>() : new List<Vegetable>() { vegetableQueue.Dequeue() };
         if(IsHoldingSalad) vegetableQueue.Clear();
+        UpdateVegetableSprites();
         return vegetables;
     }
 
@@ -46,7 +48,7 @@ public class PlayerTray : MonoBehaviour, IVegetableContainer
         {
             vegetableQueue.Enqueue(vegetable);
         }
-
+        UpdateVegetableSprites();
         return true;
     }
 
@@ -68,5 +70,21 @@ public class PlayerTray : MonoBehaviour, IVegetableContainer
     public virtual int GetNoOfVegetablesToTake()
     {
         return IsHoldingSalad ? vegetableQueue.Count : 1;
+    }
+
+    private void UpdateVegetableSprites()
+    {
+        int i = 0;
+        foreach(Vegetable vegetable in vegetableQueue)
+        {
+            vegetableSprites[i].gameObject.SetActive(true);
+            vegetableSprites[i].sprite = SpriteLoader.Instance.GetSpriteForVegetable(vegetable.Type);
+            i++;
+        }
+
+        for (; i < vegetableSprites.Length; i++)
+        {
+            vegetableSprites[i].gameObject.SetActive(false);
+        }
     }
 }

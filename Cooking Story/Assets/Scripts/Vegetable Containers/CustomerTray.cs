@@ -36,6 +36,7 @@ public class CustomerTray : VegetableContainer
     {
         orderedTime = Time.time + customerQueueTime;
         customerQueueTime += customer.WaitingTime;
+        UpdateVegetableSprites();
         orderPlaced = true;
     }
 
@@ -56,7 +57,25 @@ public class CustomerTray : VegetableContainer
         else
         {
             Debug.Log("Order wrong");
-            return base.PlaceIntoContainer(vegetables);
+            base.PlaceIntoContainer(vegetables);
+            TransferVegetables(this, _player);
+            return true;
+        }
+    }
+
+    protected override void UpdateVegetableSprites()
+    {
+        int i = 0;
+        foreach (Vegetable vegetable in customer?.Order)
+        {
+            vegetableSprites[i].gameObject.SetActive(true);
+            vegetableSprites[i].sprite = SpriteLoader.Instance.GetSpriteForVegetable(vegetable.Type);
+            i++;
+        }
+
+        for (; i < vegetableSprites.Length; i++)
+        {
+            vegetableSprites[i].gameObject.SetActive(false);
         }
     }
 }

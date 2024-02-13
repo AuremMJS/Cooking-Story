@@ -17,7 +17,7 @@ public class Customer
         for (int i = 0; i < noOfItems; i++)
         {
             int randomVeg = UnityEngine.Random.Range(0, vegetables.Length);
-            Order.Add(new Vegetable((VegetableType) randomVeg,false));
+            Order.Add(new Vegetable((VegetableType) randomVeg,true));
             Debug.Log(Order[i].Type.ToString());
         }
     }
