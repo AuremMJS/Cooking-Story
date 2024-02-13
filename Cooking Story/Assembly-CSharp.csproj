@@ -57,6 +57,9 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\InputController.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\Vegetable Containers\PlayerTray.cs" />
+     <Compile Include="Assets\Scripts\Vegetable Containers\Vegetable.cs" />
+     <Compile Include="Assets\Scripts\Vegetable Containers\VegetableContainer.cs" />
  <Reference Include="UnityEngine">
  <HintPath>K:/Softwares/Unity/2019/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
