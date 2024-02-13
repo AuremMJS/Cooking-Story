@@ -10,7 +10,7 @@ public class Customer
 
     public Customer() 
     { 
-        int noOfItems = UnityEngine.Random.Range(1, 4);
+        int noOfItems = UnityEngine.Random.Range(1, 3);
         Order = new List<Vegetable>(noOfItems);
         Array vegetables = Enum.GetValues(typeof(VegetableType));
         Debug.Log("Customer Order :");

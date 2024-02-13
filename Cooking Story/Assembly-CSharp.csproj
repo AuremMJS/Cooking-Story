@@ -66,6 +66,7 @@
      <Compile Include="Assets\Scripts\Vegetable Containers\TrashCan.cs" />
      <Compile Include="Assets\Scripts\Vegetable Containers\Vegetable.cs" />
      <Compile Include="Assets\Scripts\Vegetable Containers\VegetableContainer.cs" />
+     <Compile Include="Assets\Scripts\VegetableSpritesSO.cs" />
  <Reference Include="UnityEngine">
  <HintPath>K:/Softwares/Unity/2019/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>

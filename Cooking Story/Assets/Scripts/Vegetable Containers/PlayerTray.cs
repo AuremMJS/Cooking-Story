@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class PlayerTray : MonoBehaviour, IVegetableContainer
 {
+    [SerializeField]
+    private SpriteRenderer[] vegetableSprites;
+
     Queue<Vegetable> vegetableQueue;
     int maxVegetables;
     public bool IsHoldingSalad { get; set; }

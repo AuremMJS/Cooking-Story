@@ -50,6 +50,7 @@ public class CustomerTray : VegetableContainer
             }
             vegetables.Clear();
             vegetables = null;
+            customer = new Customer();
             return true;
         }
         else
