@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Plate : VegetableContainer
 {
+    [SerializeField]
+    private int playerIndex;
+
     // Start is called before the first frame update
     public override void Start()
     {
@@ -21,5 +24,13 @@ public class Plate : VegetableContainer
     {
         Debug.Log($"Placed {vegetables[0]?.Type} into Plate");
         return base.PlaceIntoContainer(vegetables);
+    }
+
+    protected override void TransferVegetables(IVegetableContainer source, IVegetableContainer destination)
+    {
+        if (_player.GetPlayerIndex() != playerIndex)
+            return;
+
+        base.TransferVegetables(source, destination);
     }
 }

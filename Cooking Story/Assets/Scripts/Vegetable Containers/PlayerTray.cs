@@ -8,12 +8,14 @@ public class PlayerTray : MonoBehaviour, IVegetableContainer
     [SerializeField]
     private SpriteRenderer[] vegetableSprites;
 
+    Player player;
     Queue<Vegetable> vegetableQueue;
     int maxVegetables;
     public bool IsHoldingSalad { get; set; }
     // Start is called before the first frame update
     void Start()
     {
+        player = GetComponent<Player>();
         IsHoldingSalad = false;
         SetMaxVegetables(2);
         vegetableQueue = new Queue<Vegetable>();
@@ -86,5 +88,10 @@ public class PlayerTray : MonoBehaviour, IVegetableContainer
         {
             vegetableSprites[i].gameObject.SetActive(false);
         }
+    }
+
+    public int GetPlayerIndex()
+    {
+        return player.PlayerIndex;
     }
 }

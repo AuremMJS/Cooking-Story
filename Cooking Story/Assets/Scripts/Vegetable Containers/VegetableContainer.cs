@@ -71,30 +71,19 @@ public abstract class VegetableContainer : MonoBehaviour, IVegetableContainer
         UpdateVegetableSprites();
         return true;
     }
-    private void OnItemTaken()
+    private void OnItemTaken(int index)
     {
-        //if (_player != null && _player.CanPlaceVegetables(GetNoOfVegetablesToTake()))
-        //{
-        //    List<Vegetable> vegetables = TakeFromContainer();
-        //    if(vegetables!= null)
-        //        _player?.PlaceIntoContainer(vegetables);
-        //}
-
-        TransferVegetables(this, _player);
+        if(_player != null && index == _player.GetPlayerIndex())
+            TransferVegetables(this, _player);
     }
 
-    private void OnItemPlaced()
+    private void OnItemPlaced(int index)
     {
-        //if (_player != null && CanPlaceVegetables(_player.GetNoOfVegetablesToTake()))
-        //{
-        //    List<Vegetable> vegetables = _player?.TakeFromContainer();
-        //    PlaceIntoContainer(vegetables);
-        //}
-
-        TransferVegetables(_player, this);
+        if(_player != null && index == _player.GetPlayerIndex())
+            TransferVegetables(_player, this);
     }
 
-    protected void TransferVegetables(IVegetableContainer source, IVegetableContainer destination)
+    protected virtual void TransferVegetables(IVegetableContainer source, IVegetableContainer destination)
     {
         if (source != null && destination != null && destination.CanPlaceVegetables(source.GetNoOfVegetablesToTake()))
         {

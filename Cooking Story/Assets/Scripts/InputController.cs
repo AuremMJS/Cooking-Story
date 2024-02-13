@@ -5,10 +5,8 @@ public class InputController : MonoBehaviour
 {
     public static InputController Instance { get; private set; }
 
-    public Action ItemTaken { get; set; }
-    public Action ItemPlaced { get; set; }
-
-    private float speed = 10.0f;
+    public Action<int> ItemTaken { get; set; }
+    public Action<int> ItemPlaced { get; set; }
 
     // Start is called before the first frame update
     void Awake()
@@ -22,23 +20,29 @@ public class InputController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.T))
         {
-            ItemTaken?.Invoke();
+            ItemTaken?.Invoke(0);
         }
-        else if (Input.GetKeyDown(KeyCode.P))
+        else if (Input.GetKeyDown(KeyCode.Y))
         {
-            ItemPlaced?.Invoke();
+            ItemPlaced?.Invoke(0);
+        }
+
+        if(Input.GetKeyDown(KeyCode.K)) 
+        {
+            ItemTaken?.Invoke(1);
+        }
+        else if(Input.GetKeyDown(KeyCode.M))
+        {
+            ItemPlaced?.Invoke(1);
         }
     }
 
-    public Vector2 GetPlayerVelocity()
+    public Vector2 GetPlayerVelocity(int playerIndex)
     {
-        float xVelocity = Input.GetAxis("Horizontal") * speed;
-        float yVelocity = Input.GetAxis("Vertical") * speed;
+        string horizontalAxis = playerIndex == 0 ? "P1_Horizontal" : "P2_Horizontal";
+        string verticalAxis = playerIndex == 0 ? "P1_Vertical" : "P2_Vertical";
+        float xVelocity = Input.GetAxis(horizontalAxis);
+        float yVelocity = Input.GetAxis(verticalAxis);
         return new Vector2(xVelocity, yVelocity);
-    }
-
-    public void SetPlayerSpeed(float _speed)
-    {
-        this.speed = _speed;
     }
 }

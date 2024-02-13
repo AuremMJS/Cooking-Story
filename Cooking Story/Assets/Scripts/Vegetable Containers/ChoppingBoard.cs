@@ -7,6 +7,9 @@ using UnityEngine;
 
 public class ChoppingBoard : VegetableContainer
 {
+    [SerializeField]
+    private int playerIndex;
+
     float choppingTime = 5.0f;
     bool choppingInProgress;
     float choppingStartTime;
@@ -26,7 +29,7 @@ public class ChoppingBoard : VegetableContainer
         if(choppingInProgress && Time.time - choppingStartTime > choppingTime)
         {
             choppingInProgress =false;
-            InputController.Instance.SetPlayerSpeed(10.0f);
+            _player.GetComponent<Player>().ResetCurrentSpeed();
             Debug.Log("Chopping done");
         }
     }
@@ -56,7 +59,7 @@ public class ChoppingBoard : VegetableContainer
         else
         {
             Debug.Log($"{vegetables[0]?.Type} placed into board");
-            InputController.Instance.SetPlayerSpeed(0);
+            _player.GetComponent<Player>().CurrentSpeed = 0;
             choppingStartTime = Time.time;
             foreach (var vegetable in vegetables)
             {
@@ -71,5 +74,12 @@ public class ChoppingBoard : VegetableContainer
     public override bool CanPlaceVegetables(int newVegetablesCount)
     {
         return !choppingInProgress && base.CanPlaceVegetables(newVegetablesCount);
+    }
+    protected override void TransferVegetables(IVegetableContainer source, IVegetableContainer destination)
+    {
+        if (_player.GetPlayerIndex() != playerIndex)
+            return;
+
+        base.TransferVegetables(source, destination);
     }
 }
