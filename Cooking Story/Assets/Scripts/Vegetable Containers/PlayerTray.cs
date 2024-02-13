@@ -34,7 +34,7 @@ public class PlayerTray : MonoBehaviour, IVegetableContainer
 
     public virtual bool PlaceIntoContainer(List<Vegetable> vegetables)
     {
-        if(!CanTakeVegetables(vegetables.Count))
+        if(!CanPlaceVegetables(vegetables.Count))
         {
             return false;
         }
@@ -56,7 +56,7 @@ public class PlayerTray : MonoBehaviour, IVegetableContainer
         return false;
     }
 
-    public bool CanTakeVegetables(int newVegetablesCount)
+    public bool CanPlaceVegetables(int newVegetablesCount)
     {
         return ((vegetableQueue.Count < maxVegetables && (vegetableQueue.Count + newVegetablesCount) <= maxVegetables) || IsHoldingSalad);
     }

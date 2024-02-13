@@ -5,16 +5,10 @@ using UnityEngine;
 public class Plate : VegetableContainer
 {
     // Start is called before the first frame update
-    public void Start()
+    public override void Start()
     {
         SetMaxVegetables(1);
         base.Start();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public override List<Vegetable> TakeFromContainer()

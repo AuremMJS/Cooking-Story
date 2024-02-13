@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scripts\Vegetable Containers\ChoppingBoard.cs" />
      <Compile Include="Assets\Scripts\Vegetable Containers\Plate.cs" />
      <Compile Include="Assets\Scripts\Vegetable Containers\PlayerTray.cs" />
+     <Compile Include="Assets\Scripts\Vegetable Containers\TrashCan.cs" />
      <Compile Include="Assets\Scripts\Vegetable Containers\Vegetable.cs" />
      <Compile Include="Assets\Scripts\Vegetable Containers\VegetableContainer.cs" />
  <Reference Include="UnityEngine">

@@ -7,7 +7,7 @@ public interface IVegetableContainer
 {
     List<Vegetable> TakeFromContainer();
     bool PlaceIntoContainer(List<Vegetable> vegetable);
-    bool CanTakeVegetables(int newVegetablesCount);
+    bool CanPlaceVegetables(int newVegetablesCount);
     int GetNoOfVegetablesToTake();
 }
 
@@ -55,7 +55,7 @@ public abstract class VegetableContainer : MonoBehaviour, IVegetableContainer
     
     public virtual bool PlaceIntoContainer(List<Vegetable> vegetables)
     {
-        if(!CanTakeVegetables(vegetables.Count))
+        if(!CanPlaceVegetables(vegetables.Count))
         {
             return false;
         }
@@ -67,7 +67,7 @@ public abstract class VegetableContainer : MonoBehaviour, IVegetableContainer
     }
     private void OnItemTaken()
     {
-        if (_player != null && _player.CanTakeVegetables(GetNoOfVegetablesToTake()))
+        if (_player != null && _player.CanPlaceVegetables(GetNoOfVegetablesToTake()))
         {
             List<Vegetable> vegetables = TakeFromContainer();
             if(vegetables!= null)
@@ -77,7 +77,7 @@ public abstract class VegetableContainer : MonoBehaviour, IVegetableContainer
 
     private void OnItemPlaced()
     {
-        if (_player != null && CanTakeVegetables(_player.GetNoOfVegetablesToTake()))
+        if (_player != null && CanPlaceVegetables(_player.GetNoOfVegetablesToTake()))
         {
             List<Vegetable> vegetables = _player?.TakeFromContainer();
             PlaceIntoContainer(vegetables);
@@ -94,7 +94,7 @@ public abstract class VegetableContainer : MonoBehaviour, IVegetableContainer
         _player = null;
     }
 
-    public bool CanTakeVegetables(int newVegetablesCount)
+    public virtual bool CanPlaceVegetables(int newVegetablesCount)
     {
         return (vegetableQueue.Count < maxVegetables && (vegetableQueue.Count + newVegetablesCount) <= maxVegetables);
     }
