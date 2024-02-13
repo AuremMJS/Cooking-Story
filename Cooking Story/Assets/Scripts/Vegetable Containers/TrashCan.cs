@@ -34,6 +34,7 @@ public class TrashCan : VegetableContainer
         return true;
     }
 
+    // Only salad can be thrown
     public override bool CanPlaceVegetables(int newVegetablesCount)
     {
         return _player.IsHoldingSalad;

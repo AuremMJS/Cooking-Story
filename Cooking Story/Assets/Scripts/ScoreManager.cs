@@ -20,8 +20,10 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
+    // Callback when score is updated
     public Action ScoreUpdated;
     
+    // Singleton
     public static ScoreManager Instance;
     public void Awake()
     {

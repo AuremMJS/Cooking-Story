@@ -34,12 +34,14 @@ public class PlayerTray : MonoBehaviour, IVegetableContainer
             return null;
         }
         
+        // Player can place more vegetables if they are part of salad
         List<Vegetable> vegetables = IsHoldingSalad ? vegetableQueue.ToList<Vegetable>() : new List<Vegetable>() { vegetableQueue.Dequeue() };
         if(IsHoldingSalad) vegetableQueue.Clear();
         UpdateVegetableSprites();
         return vegetables;
     }
 
+    // Taking the vegetables into the player
     public virtual bool PlaceIntoContainer(List<Vegetable> vegetables)
     {
         if(!CanPlaceVegetables(vegetables.Count))
@@ -54,6 +56,7 @@ public class PlayerTray : MonoBehaviour, IVegetableContainer
         return true;
     }
 
+    // Hold the salad if the tray is empty
     public bool HoldSalad()
     {
         if (vegetableQueue.Count == 0)
@@ -64,16 +67,19 @@ public class PlayerTray : MonoBehaviour, IVegetableContainer
         return false;
     }
 
+    // Checking if vegetables can be placed in the tray
     public bool CanPlaceVegetables(int newVegetablesCount)
     {
         return ((vegetableQueue.Count < maxVegetables && (vegetableQueue.Count + newVegetablesCount) <= maxVegetables) || IsHoldingSalad);
     }
 
+    // If salad, take all the vegetables
     public virtual int GetNoOfVegetablesToTake()
     {
         return IsHoldingSalad ? vegetableQueue.Count : 1;
     }
 
+    // Updating sprites
     private void UpdateVegetableSprites()
     {
         int i = 0;
@@ -90,11 +96,13 @@ public class PlayerTray : MonoBehaviour, IVegetableContainer
         }
     }
 
+    // Get player index
     public int GetPlayerIndex()
     {
         return player.PlayerIndex;
     }
 
+    // Get player data
     public Player GetPlayer()
     {
         return player;

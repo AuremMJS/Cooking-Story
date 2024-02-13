@@ -14,18 +14,7 @@ public class Plate : VegetableContainer
         base.Start();
     }
 
-    public override List<Vegetable> TakeFromContainer()
-    {
-        Debug.Log($"Taken {vegetableQueue.Peek()?.Type} from Plate");
-        return base.TakeFromContainer();
-    }
-
-    public override bool PlaceIntoContainer(List<Vegetable> vegetables)
-    {
-        Debug.Log($"Placed {vegetables[0]?.Type} into Plate");
-        return base.PlaceIntoContainer(vegetables);
-    }
-
+    // Plate is exclusive to each player
     protected override void TransferVegetables(IVegetableContainer source, IVegetableContainer destination)
     {
         if (_player.GetPlayerIndex() != playerIndex)

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Scriptable objects to store constant values 
 [CreateAssetMenu(fileName = "GameConstantsSO", menuName = "ScriptableObjects/GameConstants", order = 1)]
 public class GameConstantsScriptableObject : ScriptableObject
 {

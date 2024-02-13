@@ -3,19 +3,20 @@ using UnityEngine;
 
 public class InputController : MonoBehaviour
 {
+    // Singleton instance
     public static InputController Instance { get; private set; }
 
+    // Callbacks when item is taken and placed
     public Action<int> ItemTaken { get; set; }
     public Action<int> ItemPlaced { get; set; }
 
-    // Start is called before the first frame update
     void Awake()
     {
         if(Instance == null)
             Instance = this;
     }
 
-    // Update is called once per frame
+    // Invoking appropriate callback with player index
     void Update()
     {
         if(Input.GetKeyDown(GameController.GameConstants.PLAYER1_TAKE))
@@ -37,6 +38,7 @@ public class InputController : MonoBehaviour
         }
     }
 
+    // Fetching the player velocity
     public Vector2 GetPlayerVelocity(int playerIndex)
     {
         string horizontalAxis = playerIndex == 0 ? GameController.GameConstants.PLAYER1_HORIZONTAL : GameController.GameConstants.PLAYER2_HORIZONTAL;

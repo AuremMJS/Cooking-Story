@@ -13,10 +13,12 @@ public class CustomerTray : VegetableContainer
     bool orderPlaced = false;
     int angryIndex = -1;
     float waitTimePercentageRemaining = 0;
+
     // Start is called before the first frame update
     public override void Start()
     {
-        customer = new Customer();
+        // New customer
+        ResetToNewCustomer();
         SetMaxVegetables(100);
         base.Start();
     }
@@ -24,16 +26,22 @@ public class CustomerTray : VegetableContainer
     // Update is called once per frame
     void Update()
     {
+        // Update progress bar
         waitTimePercentageRemaining = (customer.WaitingTime - (Time.time - orderedTime)) / customer.WaitingTime;
         waitTimeProgressBar.value = waitTimePercentageRemaining;
+        
+        // Place the order
         if (!orderPlaced)
         {
             PlaceOrder();
         }
+
+        // Checking if customer left the restaurant
         if (customer != null && Time.time - orderedTime > customer.WaitingTime)
         {
             UIManager.Instance.PrintText("Customer left the restaurant...");
            
+            // If angry, double penalty
             if(angryIndex !=  -1)
             {
                 ScoreManager.Instance[angryIndex] -= customer.GetPenalty() * 2;
@@ -43,10 +51,7 @@ public class CustomerTray : VegetableContainer
                 ScoreManager.Instance[0] -= customer.GetPenalty();
                 ScoreManager.Instance[1] -= customer.GetPenalty();
             }
-            customer = new Customer();
-            angryIndex = -1;
-            UpdateVegetableSprites();
-            orderPlaced = false;
+            ResetToNewCustomer();
         }
     }
 
@@ -59,8 +64,10 @@ public class CustomerTray : VegetableContainer
         orderPlaced = true;
     }
 
+    // Placing the order to customer
     public override bool PlaceIntoContainer(List<Vegetable> vegetables)
     {
+        // Check if order is correct
         if (vegetables != null && customer.IsOrderCorrect(vegetables))
         {
             UIManager.Instance.PrintText("Order completed.. Happy customer..");
@@ -72,24 +79,35 @@ public class CustomerTray : VegetableContainer
             }
             vegetables.Clear();
             vegetables = null;
-            customer = new Customer();
-            angryIndex = -1;
-            UpdateVegetableSprites();
-            orderPlaced = false;
+            ResetToNewCustomer();
             return true;
         }
         else
         {
             UIManager.Instance.PrintText("Wrong order.. Angry customer..");
+
+            // Set customer as angry
             customer.SetAngry();
             angryIndex = _player.GetPlayerIndex();
             _player.IsHoldingSalad = true;
             base.PlaceIntoContainer(vegetables);
+            
+            // Return the order to player
             TransferVegetables(this, _player);
             return true;
         }
     }
 
+    // Reset to new Customer
+    private void ResetToNewCustomer()
+    {
+        customer = new Customer();
+        angryIndex = -1;
+        UpdateVegetableSprites();
+        orderPlaced = false;
+    }
+
+    // Updating sprites
     protected override void UpdateVegetableSprites()
     {
         int i = 0;

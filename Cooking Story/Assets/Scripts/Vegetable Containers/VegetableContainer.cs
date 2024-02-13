@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Interface for container holding vegetables
 public interface IVegetableContainer
 {
     List<Vegetable> TakeFromContainer();
@@ -11,6 +12,7 @@ public interface IVegetableContainer
     int GetNoOfVegetablesToTake();
 }
 
+// Generic container
 public abstract class VegetableContainer : MonoBehaviour, IVegetableContainer
 {
     [SerializeField]
@@ -33,7 +35,6 @@ public abstract class VegetableContainer : MonoBehaviour, IVegetableContainer
         InputController.Instance.ItemPlaced += OnItemPlaced;
         UpdateVegetableSprites();
     }
-
 
     protected void SetMaxVegetables(int _maxVegetables)
     {
@@ -58,6 +59,7 @@ public abstract class VegetableContainer : MonoBehaviour, IVegetableContainer
         return GameController.GameConstants.DEFAULT_NO_OF_ITEMS_TO_TAKE;
     }
     
+    // Placing into container
     public virtual bool PlaceIntoContainer(List<Vegetable> vegetables)
     {
         if(!CanPlaceVegetables(vegetables.Count))
@@ -71,18 +73,22 @@ public abstract class VegetableContainer : MonoBehaviour, IVegetableContainer
         UpdateVegetableSprites();
         return true;
     }
+    
+    // Input callback to take an item from this container
     private void OnItemTaken(int index)
     {
         if(_player != null && index == _player.GetPlayerIndex())
             TransferVegetables(this, _player);
     }
 
+    // Input callback to place an item into this container
     private void OnItemPlaced(int index)
     {
         if(_player != null && index == _player.GetPlayerIndex())
             TransferVegetables(_player, this);
     }
 
+    // Transfer from one container to another
     protected virtual void TransferVegetables(IVegetableContainer source, IVegetableContainer destination)
     {
         if (source != null && destination != null && destination.CanPlaceVegetables(source.GetNoOfVegetablesToTake()))
@@ -93,6 +99,7 @@ public abstract class VegetableContainer : MonoBehaviour, IVegetableContainer
         }
     }
 
+    // Collision logic
     private void OnTriggerEnter2D(Collider2D other)
     {
         _player = other.GetComponent<PlayerTray>();
@@ -103,11 +110,13 @@ public abstract class VegetableContainer : MonoBehaviour, IVegetableContainer
         _player = null;
     }
 
+    // Checking if some more vegetables can be placed
     public virtual bool CanPlaceVegetables(int newVegetablesCount)
     {
         return (vegetableQueue.Count < maxVegetables && (vegetableQueue.Count + newVegetablesCount) <= maxVegetables);
     }
 
+    // Sprites update
     protected virtual void UpdateVegetableSprites()
     {
         int i = 0;

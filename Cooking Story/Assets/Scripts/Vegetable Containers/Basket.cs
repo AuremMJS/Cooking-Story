@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +11,7 @@ public class Basket : VegetableContainer
     // Start is called before the first frame update
     public override void Start()
     {
+        // Generate many vegetables of vegetable type
         int quantity = UnityEngine.Random.Range(GameController.GameConstants.MIN_ITEMS_IN_BASKET, GameController.GameConstants.MAX_ITEMS_IN_BASKET);
         SetMaxVegetables(quantity);
         for (int i = 0; i < quantity; i++)
@@ -20,12 +19,6 @@ public class Basket : VegetableContainer
             vegetableQueue.Enqueue(new Vegetable(vegetableType,false));
         }
         base.Start();
-    }
-
-    public override List<Vegetable> TakeFromContainer()
-    {
-        Debug.Log($"Item{vegetableType} taken from Basket");
-        return base.TakeFromContainer();
     }
 
     public override bool PlaceIntoContainer(List<Vegetable> vegetable)
@@ -36,6 +29,7 @@ public class Basket : VegetableContainer
 
     protected override void UpdateVegetableSprites()
     {
+        // Update the sprite for based on the type
         vegetableSprite.sprite = SpriteLoader.Instance.GetSpriteForVegetable(vegetableType);
     }
 }

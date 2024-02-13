@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Set player velocity
         _rigidbody.velocity = InputController.Instance.GetPlayerVelocity(_player.PlayerIndex) * _player.CurrentSpeed;
     }
 }

@@ -37,12 +37,14 @@ public class UIManager : MonoBehaviour
         resetButton.gameObject.SetActive(false);
     }
 
+    // Player scores
     public void UpdateScores()
     {
         player1Score.text = ScoreManager.Instance[0].ToString();
         player2Score.text = ScoreManager.Instance[1].ToString();
     }
 
+    // Player timer
     public void UpdateTimer(Player player)
     {
         int timeLeftInSeconds = (int)(player.GameTime - (Time.time - startTime));
@@ -53,11 +55,13 @@ public class UIManager : MonoBehaviour
             player2Timer.text = timeText;
     }
 
+    // Prints text in middle
     public void PrintText(string text)
     {
         messageText.text = text;
     }
 
+    // Show reset button on game over
     public void ShowResetButton()
     {
         resetButton.gameObject.SetActive(true);
@@ -65,6 +69,7 @@ public class UIManager : MonoBehaviour
         resetButton.onClick.AddListener(OnResetButtonClicked);
     }
 
+    // Reload the game
     public void OnResetButtonClicked()
     {
         SceneManager.LoadScene(0);

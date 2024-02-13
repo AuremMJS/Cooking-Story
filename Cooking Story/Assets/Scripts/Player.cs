@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Common Player data class
 public class Player : MonoBehaviour
 {
     [SerializeField]
@@ -32,11 +33,7 @@ public class Player : MonoBehaviour
         GameTime = GameController.GameConstants.GAME_TIME;
     }
 
-    void Update()
-    {
-        
-    }
-
+    // Reset speed after chopping
     public void ResetCurrentSpeed()
     {
         CurrentSpeed = Speed;

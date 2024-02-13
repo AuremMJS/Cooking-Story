@@ -18,22 +18,23 @@ public class Vegetable : IEquatable<Vegetable>
         switch (vegetableType)
         {
             case VegetableType.Tomato:
-                return "Tomato";
+                return GameController.GameConstants.TOMATO_NAME;
             case VegetableType.Onion:
-                return "Onion";
+                return GameController.GameConstants.ONION_NAME;
             case VegetableType.Lettuce:
-                return "Lettuce";
+                return GameController.GameConstants.LETTUCE_NAME;
             case VegetableType.Carrot:
-                return "Carrot";
+                return GameController.GameConstants.CARROT_NAME;
             case VegetableType.Jalapeno:
-                return "Jalapeno";
+                return GameController.GameConstants.JALAPENO_NAME;
             case VegetableType.Olives:
-                return "Olives";
+                return GameController.GameConstants.OLIVES_NAME;
             default:
                 return "";
         }
     }
 
+    // Checking for equality
     public bool Equals(Vegetable other)
     {
         return Type == other.Type && IsChopped == other.IsChopped;

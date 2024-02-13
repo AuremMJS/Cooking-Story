@@ -11,10 +11,12 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private Player[] players;
 
+    // Singleton to constants SO
     public static GameConstantsScriptableObject GameConstants;
+
     private float startTime;
-    bool gameOver;
-    // Start is called before the first frame update
+    private bool gameOver;
+
     void Awake()
     {
         startTime = Time.time;
@@ -25,6 +27,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Checking for time out and game over
         int playersTimedOut = 0;
         foreach (Player player in players)
         {
@@ -41,6 +44,7 @@ public class GameController : MonoBehaviour
         }
         if (playersTimedOut == players.Length && !gameOver)
         {
+            // Compare player scores
             int player1Score = players[0].Score;
             int player2Score = players[1].Score;
             if (player1Score == player2Score)
