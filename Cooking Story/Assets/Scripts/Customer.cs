@@ -10,7 +10,7 @@ public class Customer
 
     public Customer() 
     { 
-        int noOfItems = UnityEngine.Random.Range(1, 3);
+        int noOfItems = UnityEngine.Random.Range(GameController.GameConstants.MIN_ITEMS_IN_ORDER, GameController.GameConstants.MAX_ITEMS_IN_ORDER);
         Order = new List<Vegetable>(noOfItems);
         Array vegetables = Enum.GetValues(typeof(VegetableType));
         for (int i = 0; i < noOfItems; i++)
@@ -23,7 +23,8 @@ public class Customer
     {
         get
         {
-            return Order.Count * 20.0f * (isAngry ? 0.75f : 1.0f);
+            return Order.Count * GameController.GameConstants.TIME_FOR_ONE_ORDER * 
+                (isAngry ? GameController.GameConstants.ANGRY_TIME_MULTIPLIER : GameController.GameConstants.NORMAL_TIME_MULTIPLIER);
         }
     }
 
@@ -45,6 +46,6 @@ public class Customer
 
     public int GetPenalty()
     {
-        return 40;
+        return GameController.GameConstants.CUSTOMER_PENALTY;
     }
 }

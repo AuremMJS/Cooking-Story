@@ -26,26 +26,15 @@ public class Player : MonoBehaviour
 
     public float GameTime { get; set; }
 
-    private float startTime;
-
-    void Awake()
+    void Start()
     {
-        Speed = CurrentSpeed = 10.0f;
-        GameTime = 60 * 2;
-        startTime = Time.time;
+        Speed = CurrentSpeed = GameController.GameConstants.DEFAULT_PLAYER_SPEED;
+        GameTime = GameController.GameConstants.GAME_TIME;
     }
 
     void Update()
     {
-        if(GameTime - (Time.time - startTime) <= 0)
-        {
-            CurrentSpeed = 0;
-            Speed = 0;
-        }
-        else
-        {
-            UIManager.Instance.UpdateTimer(this);
-        }
+        
     }
 
     public void ResetCurrentSpeed()

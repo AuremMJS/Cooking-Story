@@ -32,7 +32,7 @@ public class CustomerTray : VegetableContainer
         }
         if (customer != null && Time.time - orderedTime > customer.WaitingTime)
         {
-            Debug.Log($"Customer left the restaurant {customer.WaitingTime}");
+            UIManager.Instance.PrintText("Customer left the restaurant...");
            
             if(angryIndex !=  -1)
             {
@@ -63,7 +63,7 @@ public class CustomerTray : VegetableContainer
     {
         if (vegetables != null && customer.IsOrderCorrect(vegetables))
         {
-            Debug.Log("Order completed");
+            UIManager.Instance.PrintText("Order completed.. Happy customer..");
             ScoreManager.Instance[_player.GetPlayerIndex()]+= 100;
             _player.IsHoldingSalad = false;
             for (int i = 0; i < vegetables.Count; i++)
@@ -80,7 +80,7 @@ public class CustomerTray : VegetableContainer
         }
         else
         {
-            Debug.Log("Order wrong");
+            UIManager.Instance.PrintText("Wrong order.. Angry customer..");
             customer.SetAngry();
             angryIndex = _player.GetPlayerIndex();
             _player.IsHoldingSalad = true;

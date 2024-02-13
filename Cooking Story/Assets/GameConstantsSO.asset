@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0163fe0a699f6a74ca2235f6628a3601, type: 3}
+  m_Name: GameConstantsSO
+  m_EditorClassIdentifier: 
+  DEFAULT_SCENE: 0
+  PLAYER1_HORIZONTAL: P1_Horizontal
+  PLAYER1_VERTICAL: P1_Vertical
+  PLAYER2_HORIZONTAL: P2_Horizontal
+  PLAYER2_VERTICAL: P2_Vertical
+  PLAYER1_TAKE: 116
+  PLAYER2_TAKE: 107
+  PLAYER1_PLACE: 121
+  PLAYER2_PLACE: 109
+  GAME_TIME: 120
+  DEFAULT_PLAYER_SPEED: 10
+  MIN_ITEMS_IN_ORDER: 1
+  MAX_ITEMS_IN_ORDER: 3
+  TIME_FOR_ONE_ORDER: 20
+  ANGRY_TIME_MULTIPLIER: 0.75
+  NORMAL_TIME_MULTIPLIER: 1
+  CUSTOMER_PENALTY: 40
+  TRASH_PENALTY: 30
+  MIN_ITEMS_IN_BASKET: 5
+  MAX_ITEMS_IN_BASKET: 15
+  CHOPPING_TIME: 2
+  MAX_ITEMS_IN_PLAYER_TRAY: 2
+  DEFAULT_NO_OF_ITEMS_TO_TAKE: 1
+  TOMATO_NAME: Tomato
+  ONION_NAME: Onion
+  LETTUCE_NAME: Lettuce
+  CARROT_NAME: Carrot
+  JALAPENO_NAME: Jalapeno
+  OLIVES_NAME: Olives

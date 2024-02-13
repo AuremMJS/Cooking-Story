@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -15,6 +16,10 @@ public class UIManager : MonoBehaviour
     private Text player1Timer;
     [SerializeField]
     private Text player2Timer;
+    [SerializeField]
+    private Text messageText;
+    [SerializeField]
+    private Button resetButton;
 
     private float startTime;
 
@@ -29,6 +34,7 @@ public class UIManager : MonoBehaviour
         ScoreManager.Instance.ScoreUpdated += UpdateScores;
         UpdateScores();
         startTime = Time.time;
+        resetButton.gameObject.SetActive(false);
     }
 
     public void UpdateScores()
@@ -45,5 +51,22 @@ public class UIManager : MonoBehaviour
             player1Timer.text = timeText;
         else if (player.PlayerIndex == 1)
             player2Timer.text = timeText;
+    }
+
+    public void PrintText(string text)
+    {
+        messageText.text = text;
+    }
+
+    public void ShowResetButton()
+    {
+        resetButton.gameObject.SetActive(true);
+        resetButton.onClick.RemoveAllListeners();
+        resetButton.onClick.AddListener(OnResetButtonClicked);
+    }
+
+    public void OnResetButtonClicked()
+    {
+        SceneManager.LoadScene(0);
     }
 }

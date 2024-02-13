@@ -10,7 +10,7 @@ public class ChoppingBoard : VegetableContainer
     [SerializeField]
     private int playerIndex;
 
-    float choppingTime = 2.0f;
+    float choppingTime;
     bool choppingInProgress;
     float choppingStartTime;
 
@@ -19,6 +19,7 @@ public class ChoppingBoard : VegetableContainer
     {
         choppingInProgress = false;
         choppingStartTime = 0;
+        choppingTime = GameController.GameConstants.CHOPPING_TIME;
         SetMaxVegetables(100);
         base.Start();
     }
@@ -30,7 +31,7 @@ public class ChoppingBoard : VegetableContainer
         {
             choppingInProgress =false;
             _player.GetComponent<Player>().ResetCurrentSpeed();
-            Debug.Log("Chopping done");
+            UIManager.Instance.PrintText("Chopping Done...");
         }
     }
 
@@ -38,7 +39,7 @@ public class ChoppingBoard : VegetableContainer
     {
         if (_player.HoldSalad())
         {
-            Debug.Log($"Salad taken from board");
+            UIManager.Instance.PrintText("Salad taken from board...");
             List<Vegetable> vegetables = vegetableQueue.ToList<Vegetable>();
             vegetableQueue.Clear();
             UpdateVegetableSprites();
@@ -53,12 +54,11 @@ public class ChoppingBoard : VegetableContainer
 
         if (_player.IsHoldingSalad)
         {
-            Debug.Log($"Salad placed into board");
             _player.IsHoldingSalad = false;
         }
         else
         {
-            Debug.Log($"{vegetables[0]?.Type} placed into board");
+            UIManager.Instance.PrintText("Chopping...");
             _player.GetComponent<Player>().CurrentSpeed = 0;
             choppingStartTime = Time.time;
             foreach (var vegetable in vegetables)

@@ -18,20 +18,20 @@ public class InputController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.T))
+        if(Input.GetKeyDown(GameController.GameConstants.PLAYER1_TAKE))
         {
             ItemTaken?.Invoke(0);
         }
-        else if (Input.GetKeyDown(KeyCode.Y))
+        else if (Input.GetKeyDown(GameController.GameConstants.PLAYER1_PLACE))
         {
             ItemPlaced?.Invoke(0);
         }
 
-        if(Input.GetKeyDown(KeyCode.K)) 
+        if(Input.GetKeyDown(GameController.GameConstants.PLAYER2_TAKE)) 
         {
             ItemTaken?.Invoke(1);
         }
-        else if(Input.GetKeyDown(KeyCode.M))
+        else if(Input.GetKeyDown(GameController.GameConstants.PLAYER2_PLACE))
         {
             ItemPlaced?.Invoke(1);
         }
@@ -39,8 +39,8 @@ public class InputController : MonoBehaviour
 
     public Vector2 GetPlayerVelocity(int playerIndex)
     {
-        string horizontalAxis = playerIndex == 0 ? "P1_Horizontal" : "P2_Horizontal";
-        string verticalAxis = playerIndex == 0 ? "P1_Vertical" : "P2_Vertical";
+        string horizontalAxis = playerIndex == 0 ? GameController.GameConstants.PLAYER1_HORIZONTAL : GameController.GameConstants.PLAYER2_HORIZONTAL;
+        string verticalAxis = playerIndex == 0 ? GameController.GameConstants.PLAYER1_VERTICAL : GameController.GameConstants.PLAYER2_VERTICAL;
         float xVelocity = Input.GetAxis(horizontalAxis);
         float yVelocity = Input.GetAxis(verticalAxis);
         return new Vector2(xVelocity, yVelocity);

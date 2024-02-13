@@ -13,7 +13,7 @@ public class Basket : VegetableContainer
     // Start is called before the first frame update
     public override void Start()
     {
-        int quantity = UnityEngine.Random.Range(5, 15);
+        int quantity = UnityEngine.Random.Range(GameController.GameConstants.MIN_ITEMS_IN_BASKET, GameController.GameConstants.MAX_ITEMS_IN_BASKET);
         SetMaxVegetables(quantity);
         for (int i = 0; i < quantity; i++)
         {

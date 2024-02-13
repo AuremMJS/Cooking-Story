@@ -56,18 +56,20 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Customer.cs" />
+     <Compile Include="Assets\Scripts\GameConstantsScriptableObject.cs" />
+     <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\InputController.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\ScoreManager.cs" />
      <Compile Include="Assets\Scripts\SpriteLoader.cs" />
+     <Compile Include="Assets\Scripts\UIManager.cs" />
      <Compile Include="Assets\Scripts\Vegetable Containers\Basket.cs" />
      <Compile Include="Assets\Scripts\Vegetable Containers\ChoppingBoard.cs" />
      <Compile Include="Assets\Scripts\Vegetable Containers\CustomerTray.cs" />
      <Compile Include="Assets\Scripts\Vegetable Containers\Plate.cs" />
      <Compile Include="Assets\Scripts\Vegetable Containers\PlayerTray.cs" />
      <Compile Include="Assets\Scripts\Vegetable Containers\TrashCan.cs" />
-     <Compile Include="Assets\Scripts\Vegetable Containers\UIManager.cs" />
      <Compile Include="Assets\Scripts\Vegetable Containers\Vegetable.cs" />
      <Compile Include="Assets\Scripts\Vegetable Containers\VegetableContainer.cs" />
      <Compile Include="Assets\Scripts\VegetableSpritesSO.cs" />

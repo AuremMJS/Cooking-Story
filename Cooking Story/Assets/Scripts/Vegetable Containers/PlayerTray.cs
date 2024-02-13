@@ -17,7 +17,7 @@ public class PlayerTray : MonoBehaviour, IVegetableContainer
     {
         player = GetComponent<Player>();
         IsHoldingSalad = false;
-        SetMaxVegetables(2);
+        SetMaxVegetables(GameController.GameConstants.MAX_ITEMS_IN_PLAYER_TRAY);
         vegetableQueue = new Queue<Vegetable>();
         UpdateVegetableSprites();
     }

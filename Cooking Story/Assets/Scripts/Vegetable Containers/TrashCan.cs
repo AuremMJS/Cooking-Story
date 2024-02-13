@@ -22,7 +22,7 @@ public class TrashCan : VegetableContainer
         // We can throw only salad into trash
         if(!_player.IsHoldingSalad)
             return false;
-        Debug.Log("Throwing into trash");
+        UIManager.Instance.PrintText("Thrown the salad in trash...");
         for (int i=0; i<vegetables.Count; i++)
         {
             vegetables[i] = null;
@@ -30,7 +30,7 @@ public class TrashCan : VegetableContainer
         vegetables.Clear();
         vegetables = null;
         _player.IsHoldingSalad = false;
-        ScoreManager.Instance[_player.GetPlayerIndex()] -= 30;
+        ScoreManager.Instance[_player.GetPlayerIndex()] -= GameController.GameConstants.TRASH_PENALTY;
         return true;
     }
 

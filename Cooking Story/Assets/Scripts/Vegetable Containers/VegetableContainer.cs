@@ -55,7 +55,7 @@ public abstract class VegetableContainer : MonoBehaviour, IVegetableContainer
 
     public virtual int GetNoOfVegetablesToTake()
     {
-        return 1;
+        return GameController.GameConstants.DEFAULT_NO_OF_ITEMS_TO_TAKE;
     }
     
     public virtual bool PlaceIntoContainer(List<Vegetable> vegetables)
